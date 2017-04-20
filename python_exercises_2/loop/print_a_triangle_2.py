@@ -8,7 +8,7 @@ for i in range (0,n):
 	runner=runner-1
 
 	for k in range (0,runner2):
-		print("*", end="")
+		print(u"\U0001F499", end="")
 	runner2=(runner2 + 2) 
 
 	print("")
