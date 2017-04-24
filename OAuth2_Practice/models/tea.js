@@ -1,7 +1,7 @@
 // Load required packages
 var mongoose = require('mongoose');
 
-// Define our beer schema
+// Define our tea schema
 var TeaSchema   = new mongoose.Schema({
   name: String,
   quantity: Number
