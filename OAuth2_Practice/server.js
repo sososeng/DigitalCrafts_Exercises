@@ -77,6 +77,41 @@ teaRoute.get(function(req, res) {
   });
 });
 
+
+// -- New Code Below Here -- //
+
+// Create endpoint /api/teas/:tea_id for PUT
+teaRoute.put(function(req, res) {
+  // Use the Tea model to find a specific tea
+  Tea.findById(req.params.tea_id, function(err, tea) {
+    if (err)
+      res.send(err);
+
+    // Update the existing tea quantity
+    tea.quantity = req.body.quantity;
+
+    // Save the tea and check for errors
+    tea.save(function(err) {
+      if (err)
+        res.send(err);
+
+      res.json(tea);
+    });
+  });
+});
+
+
+// Create endpoint /api/teas/:tea_id for DELETE
+teaRoute.delete(function(req, res) {
+  // Use the Tea model to find a specific tea and remove it
+  Tea.findByIdAndRemove(req.params.tea_id, function(err) {
+    if (err)
+      res.send(err);
+
+    res.json({ message: 'Tea removed from the locker!' });
+  });
+});
+
 // Register all our routes with /api
 app.use('/api', router);
 
