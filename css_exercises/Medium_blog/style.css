@@ -1,0 +1,70 @@
+.pic{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	
+}
+.icon{
+	position: relative;
+	left: 10px;
+}
+
+.wrapper{
+	//background-color: blue;
+	width: 50%;
+	
+	
+	margin: 0 auto;
+	margin-bottom: 0;
+
+	
+}
+
+.profile_pic{
+	border-radius: 50%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.title{
+	display: inline-block;
+	margin-left: 10px;
+}
+
+span{
+	color: gray;
+}
+
+.github{
+max-width: 100%;
+max-height: 100%;
+margin: 0 0;
+padding: 0;
+border: none;
+}
+
+body{
+	margin:0 0;
+	padding: 0 0;
+	border: none;
+
+}
+
+.p{
+	--x-height-multiplier: 0.35;
+    --baseline-multiplier: 0.179;
+    font-family: medium-content-serif-font,Georgia,Cambria,"Times New Roman",Times,serif;
+    letter-spacing: .01rem;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 21px;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+}
+
+#break{
+	margin: 0 auto;
+	text-align: center;
+	color: grey;
+	font-size: 20px;
+}
