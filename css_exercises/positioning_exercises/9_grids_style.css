@@ -1,0 +1,133 @@
+body{
+	margin: 0 0;
+	padding: 0;
+	border: none;
+}
+
+.topleft{
+
+	width: 33.33%;
+	height: 33.33%;
+	background-color:black;
+	position: absolute;
+
+	padding: 0px;
+	margin:0px;
+	border: none;
+}
+
+.topmid{
+
+	width: 33.33%;
+	height: 33.33%;
+	background-color:red;
+	position: absolute;
+
+	padding: 0px;
+	margin:0px;
+	border: none;
+	left:33.33%;
+}
+
+.topright{
+
+	width: 33.33%;
+	height: 33.33%;
+	background-color:yellow;
+	position: absolute;
+
+	padding: 0px;
+	margin:0px;
+	border: none;
+	right:0;
+}
+
+
+
+
+.midleft{
+
+	width: 33.33%;
+	height: 33.33%;
+	background-color:blue;
+	position: absolute;
+
+	padding: 0px;
+	margin:0px;
+	border: none;
+	top: 33.33%;
+}
+
+.midmid{
+
+	width: 33.33%;
+	height: 33.33%;
+	background-color:gray;
+	position: absolute;
+
+	padding: 0px;
+	margin:0px;
+	border: none;
+	left:33.33%;
+	top:33.33%;
+}
+
+.midright{
+
+	width: 33.33%;
+	height: 33.33%;
+	background-color:brown;
+	position: absolute;
+
+	padding: 0px;
+	margin:0px;
+	border: none;
+	right:0;
+	top:33.33%;
+}
+
+
+
+.botleft{
+
+	width: 33.33%;
+	height: 33.33%;
+	background-color:orange;
+	position: absolute;
+
+	padding: 0px;
+	margin:0px;
+	border: none;
+	
+	bottom:0;
+}
+
+.botmid{
+
+	width: 33.33%;
+	height: 33.33%;
+	background-color:purple;
+	position: absolute;
+
+	padding: 0px;
+	margin:0px;
+	border: none;
+	left:33.33%;
+	
+	bottom:0;
+}
+
+.botright{
+
+	width: 33.33%;
+	height: 33.33%;
+	background-color:pink;
+	position: absolute;
+
+	padding: 0px;
+	margin:0px;
+	border: none;
+	right:0;
+	
+	bottom:0;
+}

@@ -1,0 +1,39 @@
+body{
+	margin: 0 0;
+	padding: 0;
+	border: none;
+}
+
+.left{
+	width: 20%;
+	height: 100%;
+	background-color:red;
+	position: absolute;
+	padding: 0px;
+	margin:0px;
+	border: none;
+}
+
+.right{
+	width: 20%;
+	height: 100%;
+	background-color:blue;
+	position: absolute;
+	padding: 0px;
+	margin:0px;
+	border: none;
+	right: 0;
+}
+
+.mid{
+	.right{
+	width: 60%;
+	height: 100%;
+	background-color:white;
+	position: absolute;
+	padding: 0px;
+	margin:0px;
+	border: none;
+	right: 0;
+}
+}
