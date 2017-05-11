@@ -1,0 +1,11 @@
+
+
+<h1>{{question}}</h1>
+
+<form action ="/" method = "POST">
+    {% csrf_token %}
+    <input type="radio" name="your_vote" value="Python"> Python<br>
+    <input type="radio" name="your_vote" value="JavaScript"> JavaScript<br>
+
+	<input type ="submit">
+</form>
