@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from mypoll.models import Poll
+from mypoll.models import Poll, Category
 from django.shortcuts import get_object_or_404
 from django.template.response import TemplateResponse
 from django import forms
@@ -36,3 +36,5 @@ def result(request):
 	'javascript' : poll.javascript_vote,
 	} 
 	return TemplateResponse(request,'result.html', context)
+
+
