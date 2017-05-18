@@ -34,4 +34,3 @@ select * from (select project.id, project.name, count(project_uses_tech.tech_id)
 select * from (select tech.id, tech.name, count(project_uses_tech.project_id) from tech left outer join project_uses_tech on project_uses_tech.tech_id = tech.id group by tech.id) x order by count desc;
 
 select avg(c) from (select project.name, count(project_uses_tech.tech_id) as c from project left outer join project_uses_tech on project_uses_tech.project_id = project.id group by project.id) x;
-
