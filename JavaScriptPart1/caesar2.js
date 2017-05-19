@@ -7,7 +7,7 @@ function cipher(st){
 
 
 			let temp = st.charCodeAt(i);
-			console.log(String.fromCharCode(temp));
+			
 
 			if(temp >= 97 && temp <=122){
 				myst += String.fromCharCode((temp - 97 - 13 + 26) % 26  + 97);
