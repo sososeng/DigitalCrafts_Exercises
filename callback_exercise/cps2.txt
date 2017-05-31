@@ -1,0 +1,30 @@
+function add(x,y , callback){
+
+	var res = x +y;
+	callback(res);
+}
+
+
+function substract(x,y,callback){
+	var res = x-y;
+	callback(res);
+}
+
+function greeting(person, callback){
+	var st = "Hola" + person + "!";
+
+	callback(st);
+}
+
+function hello(){
+	callback("hello, world!");
+}
+
+
+function product(numbers, callback){
+	var res = numbers.reduce(function(a,b){
+	 return a*b;
+	},1);
+
+	callback(res); 
+}

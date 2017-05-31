@@ -1,0 +1,44 @@
+f(1,2 function(res){
+	z = res;
+});
+
+
+g(4.5,0.2,true, function(res){
+	y = res;
+});
+
+
+convert([1,8,2,4,4],function(res){
+	result = res;
+});
+
+
+convert([1,8,2,4,4], {reverse:true} ,function(res){
+	result = res;
+});
+
+
+kick(can, function(){
+	
+});
+
+
+hello("Tonya", function(res){
+	message= res;
+});
+
+
+distance(start, finish, function(res){
+	miles = res;
+});
+
+
+capitalize(title, function(res){
+	title = res;
+});
+
+shampoo(dog, function(res){
+	
+});
+
+hello();
