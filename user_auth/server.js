@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var redis = require("redis");
 var port = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
@@ -7,12 +8,14 @@ var morgan = require('morgan');
 var passport =require('passport');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('express-session')({ secret: 'ilovescotchscotchyscotchscotch'});
+var session = require('express-session');
+var redisStore = require('connect-redis')(session);
+var client  = redis.createClient();
 var flash = require('connect-flash');
 var LocalStrategy   = require('passport-local').Strategy;
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-
+var passportSocketIo = require('passport.socketio');
 
 
 mongoose.connect('mongodb://localhost/user_auth');
@@ -130,7 +133,7 @@ userSchema.methods.validPassword = function(password) {
 
 var User = mongoose.model('User',userSchema);
 
-
+sessionStore = new redisStore({ host: 'localhost', port: 6379, client: client,ttl :  260});
 
 app.use(morgan('dev'));
 app.use(cookieParser());
@@ -138,9 +141,15 @@ app.use(bodyParser());
 
 app.set('view engine','ejs');
 
-app.use(session);
+app.use(session({
+    secret: 'ssshhhhh',
+    // create new redis store.
+    store: sessionStore,
+    saveUninitialized: true,
+    resave: true
+}));
 app.use(passport.initialize());
-//app.use(passport.session());
+app.use(passport.session());
 app.use(flash());
 
 
@@ -178,8 +187,13 @@ app.get('/profile', isLoggedIn, function(req, res) {
     });
 });
 app.get('/logout', function(req, res) {
-       req.logout();
-       res.redirect('/');
+  req.session.destroy(function(err){
+         if(err){
+             console.log(err);
+         } else {
+             res.redirect('/');
+         }
+     });
 });
 
 
@@ -198,15 +212,37 @@ function isLoggedIn(req, res, next) {
 
 server.listen(8000);
 
-io.use(function(socket,next){
-  session(socket.request, socket.request.res, next);
+io.use(passportSocketIo.authorize({
+    passport:     passport,
+    cookieParser: cookieParser,
+    key:          'connect.sid',
+    secret:       'ssshhhhh',
+    store:        sessionStore,
+    success:      onAuthorizeSuccess,
+    fail:         onAuthorizeFail
+}));
+
+function onAuthorizeSuccess(data, accept){
+  console.log('successful connection to socket.io');
+  accept();
+}
+
+function onAuthorizeFail(data, message, error, accept){
+  console.log('failed connection to socket.io:');
+  if(error)
+    accept(new Error(message));
+}
+
+io.sockets.on('connection', function(socket) {
+    var date = new Date();
+    var time = date.getHours() + ":" + date.getMinutes();
+    socket.emit('message', {username: 'Server', message: 'welcome to the chat'});
+    socket.on('send', function(data) {
+        io.sockets.emit('message', data);
+    });
 });
 
-io.on("connection", function(socket) {
-    console.log(socket.request.session.id);
 
-
-});
 
 
 
