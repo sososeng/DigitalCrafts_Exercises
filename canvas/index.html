@@ -1,0 +1,75 @@
+<canvas width="2000" height="1500"></canvas>
+
+<script>
+
+var canvas = document.querySelector('canvas');
+var ctx = canvas.getContext('2d');
+ctx.fillStyle = 'red';
+ctx.fillRect(50, 50, 100, 200);
+
+ctx.fillStyle = 'blue';
+ctx.fillRect(200,50, 100,200);
+ctx.fillStyle = 'yellow';
+ctx.fillRect(300,50, 100,200);
+
+ctx.fillStyle = 'red';
+ctx.fillRect(50, 300, 200, 250);
+ctx.fillStyle = 'yellow';
+ctx.fillRect(75, 350, 150, 150);
+
+
+
+ctx.beginPath();
+ctx.fillStyle = 'blue';
+ctx.ellipse(400, 400, 50, 50, 0, 0, Math.PI * 2);
+ctx.fill();
+ctx.stroke();
+
+ctx.beginPath();
+ctx.fillStyle = 'orange';
+ctx.ellipse(600, 500, 100, 100, 0, 0, Math.PI * 2);
+ctx.fill();
+ctx.stroke();
+
+ctx.beginPath();
+ctx.fillStyle = 'red';
+ctx.ellipse(600, 500, 75, 75, 0, 0, Math.PI * 2);
+ctx.fill();
+ctx.stroke();
+
+
+
+ctx.beginPath();
+ctx.fillStyle = 'blue';
+ctx.ellipse(500, 1000, 400, 400, 0, 0, Math.PI * 2);
+ctx.fill();
+ctx.stroke();
+
+ctx.beginPath();
+ctx.fillStyle = 'white';
+ctx.ellipse(500, 1000, 280, 280, 0, 0, Math.PI * 2);
+ctx.fill();
+ctx.stroke();
+
+ctx.beginPath();
+ctx.fillStyle = 'yellow';
+ctx.ellipse(500, 1000, 260, 260, 0, 0, Math.PI * 2);
+ctx.fill();
+ctx.stroke();
+
+ctx.beginPath();
+ctx.fillStyle = 'white';
+ctx.ellipse(500, 1000, 180, 180, 0, 0, Math.PI * 2);
+ctx.fill();
+ctx.stroke();
+
+ctx.beginPath();
+ctx.fillStyle = 'red';
+ctx.ellipse(500, 1000, 160, 160, 0, 0, Math.PI * 2);
+ctx.fill();
+ctx.stroke();
+
+
+
+
+</script>
