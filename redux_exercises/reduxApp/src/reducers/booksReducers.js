@@ -3,8 +3,24 @@ import {createStore} from 'redux';
 
 //step3 define reducers
 
-export function booksReducers (state={books:[]},action){
+export function booksReducers (state={books:[  {
+      id:6,
+      title:'this is the book title',
+      description: 'this is the book description',
+      price:66
+    },
+    {
+      id:7,
+      title:'this is the book title',
+      description: 'this is the book description',
+      price:77
+    }]},action){
+
   switch(action.type){
+
+    case "GET_BOOK":
+      return {...state, books:[...state.books]};
+
     case "POST_BOOK":
       //let books = state.books.concat(action.payload);
       //return {books};

@@ -8,24 +8,26 @@ import {addToCart} from './actions/cartActions';
 import {postBooks, deleteBooks, updateBooks} from './actions/booksActions';
 
 import logger from 'redux-logger';
+import {Provider} from 'react-redux';
+import React from 'react';
+import {render} from 'react-dom';
+import BooksList from './components/pages/booksList';
+
 //step 1 create the store
+
 
 const middleware = applyMiddleware(logger);
 const store = createStore(reducers, middleware);
 
 
-
-// store.subscribe(function(){
-//   console.log('current state is:' , store.getState());
-// });
-
-
-
+render(
+  <Provider store = {store}>
+    <BooksList/>
+  </Provider>, document.getElementById('app')
+);
 
 
 //step 2 create and dispatch actions
-//store.dispatch({type:'INCREMENT', payload:1});
-//store.dispatch({type:'DECREMENT', payload:1});
 
 store.dispatch(postBooks([
 
@@ -45,9 +47,6 @@ store.dispatch(postBooks([
   ]
 ));
 
-store.dispatch(deleteBooks({
-  id:1
-}));
 
 store.dispatch(updateBooks({
   id:2,
